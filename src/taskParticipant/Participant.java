@@ -7,20 +7,14 @@ abstract class Participant {
     private double dist;
 
     public void run(double distance) {
-            System.out.println(getName() + " біжить " + getDist() + " м");
+            System.out.println(getName() + " біжить " + distance + " м");
     }
 
     public void jump(double height) {
-            System.out.println(getName() + " стрибає " + getHeight() + " м");
+            System.out.println(getName() + " стрибає " + height + " м");
     }
 
     public void overcome(Obstacle obstacle) {
-        switch (obstacle) {
-            case WALL -> jump(obstacle.getValue());
-            case RACETRACK -> run(obstacle.getValue());
-        }
-    }
-    public void overcomeAll(Obstacle obstacle) {
         switch (obstacle) {
             case WALL -> jump(obstacle.getValue());
             case RACETRACK -> run(obstacle.getValue());

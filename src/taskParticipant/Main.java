@@ -9,7 +9,7 @@ public class Main {
         List<Participant> participantList = new ArrayList<>();
         participantList.add(new Man("Сергій", 2, 500));
         participantList.add(new Cat("Жорік", 1, 20));
-        participantList.add(new Robot("Alina", 1.5, 190));
+        participantList.add(new Robot("Robocop", 1.5, 190));
 
         List<Obstacle> obstacleList = new ArrayList<>();
         obstacleList.add(Obstacle.WALL);
@@ -22,15 +22,13 @@ public class Main {
 
         for (Participant participant : participantList) {
             boolean cont = false;
-
             for (Obstacle obstacle : obstacleList) {
                 if (!cont) {
                     switch (obstacle) {
                         case WALL -> {
-                            participant.overcomeAll(obstacle);
+                            participant.overcome(obstacle);
                             if (participant.getHeight() >= obstacle.getValue()) {
                                 System.out.println(participant.getName() + " подолав перешкоду " +obstacle.name());
-//                                participant.overcome(obstacle);
                             } else {
                                 System.out.println(participant.getName() + " не подолав перешкоду " +
                                         obstacle.name() + "=" + obstacle.getValue() +
@@ -40,10 +38,9 @@ public class Main {
                             }
                         }
                         case RACETRACK -> {
-                            participant.overcomeAll(obstacle);
+                            participant.overcome(obstacle);
                             if (participant.getDist() >= obstacle.getValue()) {
                                 System.out.println(participant.getName() + " подолав перешкоду " +obstacle.name());
-//                                participant.overcome(obstacle);
                             } else {
                                 System.out.println(participant.getName() + " не подолав перешкоду " +
                                         obstacle.name() + "=" + obstacle.getValue() +
